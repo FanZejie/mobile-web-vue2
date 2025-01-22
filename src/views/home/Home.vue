@@ -1,7 +1,7 @@
 <template>
-  <div class="">
-    home
-  </div>
+  <div class=" phone:bg-red-500 laptop:bg-green-500 desktop:bg-yellow-500">
+       This is a sample component using Tailwind CSS!
+     </div>
 </template>
 
 <script>
