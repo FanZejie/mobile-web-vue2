@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col md:flex-row">
       <!-- 动态 Banner -->
-      <div class="block md:hidden bg-blue-500 text-white p-4">
-        <h1>{{ bannerTitle }}</h1>
+      <div class="block md:hidden">
+        <TopNavBar />
       </div>
   
       <!-- 独立 Sidebar 组件 -->
@@ -17,29 +17,23 @@
   
   <script>
   import Sidebar from './Sidebar.vue';
+import TopNavBar from './TopNavBar.vue';
   
   export default {
     components: {
       Sidebar,
+      TopNavBar
     },
     data() {
       return {
-        bannerTitle: '', // 当前 Banner 的标题
+
       };
     },
     watch: {
-      // 监听路由变化，动态更新标题
-      $route: {
-        immediate: true,
-        handler() {
-          this.updateBanner();
-        },
-      },
+      
     },
     methods: {
-      updateBanner() {
-        this.bannerTitle = this.$route.meta?.title || 'Default Title';
-      },
+
     },
   };
   </script>
