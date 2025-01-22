@@ -1,6 +1,6 @@
 <template>
-  <div class=" phone:bg-red-500 laptop:bg-green-500 desktop:bg-yellow-500">
-       This is a sample component using Tailwind CSS!
+  <div class="">
+      home page
      </div>
 </template>
 

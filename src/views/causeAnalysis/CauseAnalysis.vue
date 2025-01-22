@@ -1,10 +1,13 @@
 <template>
-  <div class="">
-    causeAnalysis
+  <div>
+    analysis page
+
   </div>
 </template>
 
 <script>
+
+
 export default {
   name: '',
   components: {},

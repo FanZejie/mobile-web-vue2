@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <router-view />
+    <ResponsiveLayout>
+      <router-view />
+    </ResponsiveLayout>
+    
   </div>
 </template>
 
 <script>
+import ResponsiveLayout from './components/ResponsiveLayout.vue';
+
 
 export default {
   name: 'App',
-  components: {}
+  components: {ResponsiveLayout}
 }
 </script>
 
