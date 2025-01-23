@@ -23,7 +23,7 @@
       </div>
     </div>
 
-    <div class="w-full h-200px mt-2 overflow-hidden" style="max-width: 100%;">
+    <div class="w-full mt-2 overflow-x-hidden overflow-y-auto max-h-48 md:max-h-80" style="max-width: 100%;">
       <AlarmTimeLine class="max-w-none"
       style="height: 100%; width: 100%; overflow: auto; flex-wrap: nowrap;;"/>
 

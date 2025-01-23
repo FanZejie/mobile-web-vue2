@@ -167,8 +167,8 @@
   <style lang="less" scoped>
   .block {
     margin-left: 16px;
-    height: 200px;
     width: 100%;
+    height: 100%;
     overflow: auto;
   }
   .radio {
