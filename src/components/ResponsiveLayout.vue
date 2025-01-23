@@ -9,7 +9,7 @@
       <Sidebar class="hidden md:block bg-gray-200 w-64 p-4" />
   
       <!-- 动态内容区域 -->
-      <div class="flex-1 p-4">
+      <div class="flex-1">
         <slot />
       </div>
     </div>
