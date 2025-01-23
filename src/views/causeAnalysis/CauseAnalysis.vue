@@ -28,7 +28,7 @@
       style="height: 100%; width: 100%; overflow: auto; flex-wrap: nowrap;;"/>
 
     </div>
-    <!-- <div class="w-full h-200px">
+    <div class="w-full h-200px">
       <p class="p-0 w-full flex flex-row items-center justify-center">重点场景分析看板</p>
       <el-tabs>
         <el-tab-pane label="拓扑" name="拓扑" key="拓扑">
@@ -38,7 +38,7 @@
           <GfnLinechart v-for="(promQl,qlIndex) in item.promQls" :key="qlIndex" :promQl="promQl"/>
         </el-tab-pane>
       </el-tabs>
-    </div> -->
+    </div>
   </div>
 </template>
 
@@ -48,13 +48,13 @@ import AlarmPreview from './components/AlarmPreview.vue';
 import AnalyzeBucket from './components/AnalyzeBucket.vue';
 import ImapctTable from './components/ImapctTable.vue';
 import AlarmTimeLine from './components/AlarmTimeLine.vue';
-// import GfnLinechart from './components/GfnLinechart.vue';
+import GfnLinechart from './components/GfnLinechart.vue';
 
 import {getGrafana} from './api/api'
 
 export default {
   name: '',
-  components: {AlarmPreview,ImapctTable,AnalyzeBucket,AlarmTimeLine},
+  components: {AlarmPreview,ImapctTable,AnalyzeBucket,AlarmTimeLine,GfnLinechart},
   props: {},
   data() {
     return {
