@@ -168,7 +168,8 @@
   .block {
     margin-left: 16px;
     height: 200px;
-    overflow-y: auto;
+    width: 100%;
+    overflow: auto;
   }
   .radio {
     display: flex;
@@ -196,8 +197,8 @@
     display: flex;
     flex-wrap: nowrap;
     text-align: left;
-    width: 1900px;
-   
+    white-space: nowrap;
+    width: calc(100vw - 300px);
     .time {
       color: #3f72af;
       margin-right: 8px;

@@ -23,40 +23,63 @@
       </div>
     </div>
 
-    <div class="w-full h-200px">
-      <p class="p-0 w-full flex flex-row ">时序告警</p>
-      
+    <div class="w-full h-200px mt-2 overflow-hidden" style="max-width: 100%;">
+      <AlarmTimeLine class="max-w-none"
+      style="height: 100%; width: 100%; overflow: auto; flex-wrap: nowrap;;"/>
 
     </div>
-    <div class="w-full h-200px">重点场景分析看板</div>
+    <!-- <div class="w-full h-200px">
+      <p class="p-0 w-full flex flex-row items-center justify-center">重点场景分析看板</p>
+      <el-tabs>
+        <el-tab-pane label="拓扑" name="拓扑" key="拓扑">
+          <AnalyzeBucket/>
+        </el-tab-pane>
+        <el-tab-pane v-for="(item) in gfnArr" :key="item.name" :label="item.name">
+          <GfnLinechart v-for="(promQl,qlIndex) in item.promQls" :key="qlIndex" :promQl="promQl"/>
+        </el-tab-pane>
+      </el-tabs>
+    </div> -->
   </div>
 </template>
 
 <script>
 import AlarmPreview from './components/AlarmPreview.vue';
+
 import AnalyzeBucket from './components/AnalyzeBucket.vue';
 import ImapctTable from './components/ImapctTable.vue';
+import AlarmTimeLine from './components/AlarmTimeLine.vue';
+// import GfnLinechart from './components/GfnLinechart.vue';
 
-
+import {getGrafana} from './api/api'
 
 export default {
   name: '',
-  components: {AlarmPreview,ImapctTable,AnalyzeBucket},
+  components: {AlarmPreview,ImapctTable,AnalyzeBucket,AlarmTimeLine},
   props: {},
   data() {
     return {
-
+      timer:null,
+      gfnArr:[],
+      selectLegend: null,
+      time: []
     }
   },
   computed: {},
   watch: {},
   created() { },
   mounted() {
-
+    this.initData()
    },
    beforeDestroy() { },
   methods: {
-
+    async initData(){
+      let {data} = await getGrafana()
+      if(data.code == 0){
+        this.gfnArr = data.data
+      }else{
+        this.$message.error('msg:'+data.msg)
+      }
+    }
   }
 }
 </script>
