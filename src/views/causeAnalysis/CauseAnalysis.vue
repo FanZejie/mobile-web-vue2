@@ -1,8 +1,8 @@
 <template>
   <div class="flex flex-col text-sm">
 
-    <div class="flex flex-col w-full h-full md:h-96 md:flex-row" :key="windowWidth">
-      <div class="flex flex-col md:w-1/2 md:h-96  ">
+    <div class="flex flex-col w-full h-full md:mb-2 md:h-96 md:flex-row" :key="windowWidth">
+      <div class="flex flex-col bg-graybackground rounded md:m-2 md:w-1/2 md:h-96">
         <!-- 告警概览 -->
         <div class="w-full flex flex-col " style="height: 64px;">
           <p class="p-0 w-full flex flex-row items-center justify-center h-5">告警概览</p>
@@ -17,14 +17,14 @@
 
       </div>
       <!-- 告警分析 -->
-      <div class="h-200px flex flex-col md:w-1/2 md:h-96 ">
+      <div class="h-200px flex flex-col bg-graybackground rounded md:m-2 md:w-1/2 md:h-96">
         <p class="p-0 w-full flex flex-row items-center justify-center">告警分析</p>
         <AnalyzeBucket style="height: calc(100% - 20px);"/>
       </div>
     </div>
 
-    <div class="w-full mt-2 overflow-x-hidden overflow-y-auto max-h-48 md:max-h-80" style="max-width: 100%;">
-      <AlarmTimeLine class="max-w-none"
+    <div class="w-full bg-graybackground rounded overflow-x-hidden overflow-y-auto max-h-48 md:max-h-80 md:mt-2  mx-2" style="max-width: calc(100% - 16px)">
+      <AlarmTimeLine class="max-w-none rounded"
       style="height: 100%; width: 100%; overflow: auto; flex-wrap: nowrap;;"/>
 
     </div>

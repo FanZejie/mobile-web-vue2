@@ -6,7 +6,7 @@
       </div>
   
       <!-- 独立 Sidebar 组件 -->
-      <Sidebar  class="hidden md:block bg-gray-200 p-4" style="width: 200px;" />
+      <Sidebar  class="hidden md:block bg-gray-100 p-4" style="width: 200px;" />
   
       <!-- 动态内容区域 -->
       <div class="flex-1 overflow-auto" style="height: 100vh;" >

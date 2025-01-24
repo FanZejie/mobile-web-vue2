@@ -1,8 +1,8 @@
 <template>
-    <div class="block">
-      <div class="radio">
-        <span>时序告警：</span>
-        <el-radio-group v-model="reverse">
+    <div class="block md:mt-2">
+      <div class="flex flex-row items-center mb-2">
+        <span class="mt-1">时序告警：</span>
+        <el-radio-group v-model="reverse" class="mt-2">
           <el-radio :label="true">倒序</el-radio>
           <el-radio :label="false">正序</el-radio>
         </el-radio-group>
@@ -170,12 +170,6 @@
     width: 100%;
     height: 100%;
     overflow: auto;
-  }
-  .radio {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    margin-bottom: 6px;
   }
   ::v-deep .el-radio {
     margin-right: 10px;
