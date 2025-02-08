@@ -6037,12 +6037,6 @@ export function sendMproxyQuery() {
     })
 }
 
-import terminal from '@/assets/images/terminal.png'
-import dns from '@/assets/images/dns.png'
-import router from '@/assets/images/router.svg'
-import switchIcon from '@/assets/images/switchIcon.png'
-import firewall from '@/assets/images/firewall.png'
-import f5logo from '@/assets/images/f5logo.png'
 
 export function getTopoStructer() {
     return new Promise((resolve) => {
@@ -6052,151 +6046,171 @@ export function getTopoStructer() {
                     data: {
                         nodes: [
                             {
-                                id:'terminal',
+                                id:'terminalA',
                                 label:'终端',
-                                type: 'custom-normal-node',
+                                imgType:'terminal',
+                                status: 'warning'
+                            },
+                            {
+                                id:'terminalB',
+                                label:'终端',
                                 imgType:'terminal',
                                 status: 'warning'
                             },
                             {
                                 id: '0',
                                 label: '省中心LNS路由器',
-                                type: 'custom-normal-node',
                                 imgType:'dns',
                                 status: '0'
                             },
                             {
                                 id: '1',
                                 label: '阿里公网DNS',
-                                type: 'custom-normal-node',
                                 imgType:'dns',
                                 status: '0'
                             },
                             {
                                 id: '1-0',
                                 label: '接入路由器',
-                                img: router,
+                                type: 'custom-normal-node',
+                                imgType:'router',
                                 comboId: 'A',
                             },
                             {
                                 id: '1-1',
                                 label: '接入交换机',
-                                img: switchIcon,
+                                type: 'custom-normal-node',
+                                imgType:'accessSwitch',
                                 comboId: 'A',
                             },
                             {
                                 id: '1-2',
                                 label: '接入防火墙',
-                                img: firewall,
+                                type: 'custom-normal-node',
+                                imgType:'firewall',
                                 comboId: 'A',
                             },
                             {
                                 id: '1-3',
                                 label: '汇聚交换机',
-                                img: switchIcon,
+                                type: 'custom-normal-node',
+                                imgType:'aggregationSwitch',
                                 comboId: 'A',
                             },
                             {
                                 id: '1-4',
                                 label: 'GTM(F5)',
-                                img: f5logo,
+                                type: 'custom-normal-node',
+                                imgType:'f5',
                                 comboId: 'A',
                             },
                             {
                                 id: '2-0',
                                 label: '接入路由器',
-                                img: router,
+                                type: 'custom-normal-node',
+                                imgType:'router',
                                 comboId: 'B',
                             },
                             {
                                 id: '2-1',
                                 label: '接入交换机',
-                                img: switchIcon,
+                                imgType:'accessSwitch',
                                 comboId: 'B',
                             },
                             {
                                 id: '2-2',
                                 label: '接入防火墙',
-                                img: firewall,
+                                imgType:'firewall',
                                 comboId: 'B',
                             },
                             {
                                 id: '2-3',
                                 label: '汇聚交换机',
-                                img: switchIcon,
+                                type: 'custom-normal-node',
+                                imgType:'aggregationSwitch',
                                 comboId: 'B',
                             },
                             {
                                 id: '2-4',
                                 label: 'GTM(F5)',
-                                img: f5logo,
+                                imgType:'f5',
                                 comboId: 'B',
                             },
                             {
                                 id: '3',
                                 label: '核心交换机',
-                                img:switchIcon
+                                imgType:'aggregationSwitch',
                             },
                             {
                                 id: 'C-0',
                                 label: '汇聚交换机',
+                                imgType:'aggregationSwitch',
                                 comboId: 'C',
                             },
                             {
                                 id: 'C-1',
                                 label: 'LTM(F5)',
+                                imgType:'f5',
                                 comboId: 'C',
                             },
                             {
                                 id: 'C-2',
                                 label: '防火墙',
+                                imgType:'firewall',
                                 comboId: 'C',
                             },
                             {
                                 id: '4',
                                 label: 'SSL',
+                                imgType:'ssl',
                             },
                             {
                                 id: 'D-1',
                                 label: '交换机',
+                                imgType:'aggregationSwitch',
                                 comboId: 'D',
                             },
                             {
                                 id: 'D-2',
                                 label: 'DWDM',
+                                imgType:'DWDM',
                                 comboId: 'D',
                             },
                             {
                                 id: 'D-3',
                                 label: 'DWDM',
+                                imgType:'DWDM',
                                 comboId: 'D',
                             },
                             {
                                 id: 'D-4',
                                 label: '交换机',
+                                imgType:'aggregationSwitch',
                                 comboId: 'D',
                             },
                             {
                                 id: 'E-1',
                                 label: '核心交换机',
-                                type: 'custom-normal-node',
-                                imgType:'dns',
+                                imgType:'aggregationSwitch',
                                 status: 'error',
                                 comboId: 'E'
                             },
                             {
                                 id: 'E-2',
                                 label: '防火墙',
+                                imgType:'firewall',
                                 comboId: 'E'
                             },
                             {
                                 id: 'E-3',
                                 label: 'GTM(F5)',
+                                imgType:'f5',
                                 comboId: 'E'
                             },
                             {
                                 id: 'E-4',
                                 label: 'LTM(F5)',
+                                imgType:'f5',
                                 comboId: 'E'
                             },
                             {
@@ -6282,17 +6296,14 @@ export function getTopoStructer() {
                             {
                                 id: 'C',
                                 label: '生产服务一区',
-                                anchorPoints: [[0.5, 0], [0.5, 1]]
                             },
                             {
                                 id: 'D',
                                 label: '双中心互联区',
-                                anchorPoints: [[0.5, 0], [0.5, 1]]
                             },
                             {
                                 id: 'E',
                                 label: '生产核心区',
-                                anchorPoints: [[0.5, 0], [0.5, 1]]
                             },
                             {
                                 id: 'F',
@@ -6303,11 +6314,11 @@ export function getTopoStructer() {
                         ],
                         edges: [
                             {
-                                source:'terminal',
+                                source:'terminalA',
                                 target:'0',
                             },
                             {
-                                source:'terminal',
+                                source:'terminalB',
                                 target:'1'
                             },
                             {

@@ -67,7 +67,7 @@ export const registerCustomNormalNode = () => {
             const borderColor = status === 'error'
                 ? 'red'
                 : status === 'warning'
-                    ? 'yellow'
+                    ? '#efb041'
                     : 'green';
 
             // 使用 canvas 的 context.measureText() 方法来计算文字宽度
@@ -100,14 +100,26 @@ export const registerCustomNormalNode = () => {
                 case 'dns':
                     logoSrc = require('@/assets/images/dns.png');
                     break;
-                case 'type2':
-                    logoSrc = 'path/to/logo2.png';
+                case 'router':
+                    logoSrc = require('@/assets/images/Router.png');
                     break;
-                case 'type3':
-                    logoSrc = 'path/to/logo3.png';
+                case 'accessSwitch':
+                    logoSrc = require('@/assets/images/accessSwitch.png');
                     break;
-                case 'type4':
-                    logoSrc = 'path/to/logo4.png';
+                case 'firewall':
+                    logoSrc = require('@/assets/images/firewall.png');
+                    break;
+                case 'aggregationSwitch':
+                    logoSrc = require('@/assets/images/aggregationSwitch.png');
+                    break;
+                case 'f5':
+                    logoSrc = require('@/assets/images/f5logo.png');
+                    break;
+                case 'ssl':
+                    logoSrc = require('@/assets/images/ssl.png');
+                    break;
+                case 'DWDM':
+                    logoSrc = require('@/assets/images/DWDM.png');
                     break;
                 default:
                     logoSrc = require('@/assets/images/dns.png'); // 默认 logo
@@ -137,5 +149,6 @@ export const registerCustomNormalNode = () => {
 
             return rect; // 返回节点
         },
-    });
+    }
+);
 }

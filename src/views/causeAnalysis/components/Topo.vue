@@ -1,7 +1,7 @@
 <template>
     <div class="topology-container">
         <!-- 用于渲染 G6 图形的容器 -->
-        <div id="container" ref="container" class="topology-chart" style="width: 100%; height: 800px"></div>
+        <div id="container" ref="container" class="topology-chart" style="width: 100%; height: 700px"></div>
     </div>
 </template>
 
@@ -52,26 +52,20 @@ export default {
                     type: 'dagre',
                     rankdir: 'TB',
                     ranksep: 6,
-                   // nodesep: 20,
+                    // nodesep: 20,
                 },
                 modes: {
                     default: [
-                        'drag-combo',
-                        'drag-node',
                         'drag-canvas',
                         'zoom-canvas',
                     ],
                 },
                 defaultNode: {
-                    type: 'image',
-                    size: 20, // 节点大小
-                    labelCfg: {
-                        style: {
-                            fill: '#000', // 文本颜色
-                            fontSize: 4, // 文本大小
-                        },
-                        position: 'bottom'
-                    },
+                    type: 'custom-normal-node',
+                    anchorPoints: [
+                    [0.5, 1],
+                    [0.5, 0],    
+                    ],// 设置锚点,这里最好就按这个顺序，两个数组顺序改了edge会有问题
                 },
                 defaultEdge: {
                     style: {
