@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col text-sm">
 
-    <div class="flex flex-col w-full h-full md:mb-2 md:h-96 md:flex-row" :key="windowWidth">
+    <div class="flex flex-col w-full h-full md:mb-2 md:h-96 md:flex-row" >
       <div class="flex flex-col bg-graybackground rounded md:m-2 md:w-1/2 md:h-96">
         <!-- 告警概览 -->
         <div class="w-full flex flex-col " style="height: 64px;">
@@ -28,11 +28,11 @@
       style="height: 100%; width: 100%; overflow: auto; flex-wrap: nowrap;;"/>
 
     </div>
-    <div class="w-full h-200px">
+    <div class="w-full h-full">
       <p class="p-0 w-full flex flex-row items-center justify-center">重点场景分析看板</p>
       <el-tabs>
-        <el-tab-pane label="拓扑" name="拓扑" key="拓扑">
-          <AnalyzeBucket/>
+        <el-tab-pane label="拓扑" key="拓扑">
+          <Topo/>
         </el-tab-pane>
         <el-tab-pane v-for="(item) in gfnArr" :key="item.name" :label="item.name">
           <GfnLinechart v-for="(promQl,qlIndex) in item.promQls" :key="qlIndex" :promQl="promQl"/>
@@ -49,12 +49,12 @@ import AnalyzeBucket from './components/AnalyzeBucket.vue';
 import ImapctTable from './components/ImapctTable.vue';
 import AlarmTimeLine from './components/AlarmTimeLine.vue';
 import GfnLinechart from './components/GfnLinechart.vue';
-
+import Topo from './components/Topo.vue';
 import {getGrafana} from './api/api'
 
 export default {
   name: '',
-  components: {AlarmPreview,ImapctTable,AnalyzeBucket,AlarmTimeLine,GfnLinechart},
+  components: {AlarmPreview,ImapctTable,AnalyzeBucket,AlarmTimeLine,GfnLinechart,Topo},
   props: {},
   data() {
     return {
