@@ -1,26 +1,36 @@
 <template>
-  <div class="flex flex-col h-screen">
-    <div class="flex flex-row w-full h-10 bg-blue-300 md:hidden">
-      小屏幕名片及版本信息
+  <div class="flex flex-col h-screen bg-gray-100">
+    <div class="flex flex-row w-full h-12 items-center justify-between px-4  bg-blue-800 md:hidden">
+      <div class=" text-white">范泽杰2289</div>
+      <div class=" text-white">v1.1</div>
     </div>
-    <div class="flex flex-row h-20 md:h-36">
-      <div class="flex flex-col w-full bg-gray-400 md:w-1/2">告警信息</div>
+    <div class="flex flex-row md:h-36">
+      <div class="flex flex-col w-full md:w-1/2">
+        <AlarmPreview />
+      </div>
       <div class=" w-1/2 bg-gray-400 hidden md:flex md:flex-col">更新信息</div>
     </div>
 
-    <div class="m-2 bg-gray-300 h-300px hidden md:flex md:flex-row">
-      <div class="flex w-1/3 m-2 bg-gray-400">设备信息</div>
-      <div class="flex  w-1/3 m-2 bg-gray-400">设备状态</div>
-      <div class="flex  w-1/3 m-2 bg-gray-400">设备状态</div>
+    <div class="m-2 h-300px hidden md:flex md:flex-row md:gap-2">
+     
+        <AnalyzeBucket class="flex w-1/3 border"/>
+        <AnalyzeBucket class="flex w-1/3 border"/>
+        <AnalyzeBucket class="flex w-1/3 border"/>
     </div>
 
     <!-- 小屏幕滑动效果 -->
     <div class="relative overflow-hidden h-300px w-full md:hidden sm:block" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
       <div class="flex transition-transform duration-500"
         :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
-        <div class="flex-none w-full  bg-gray-400 h-300px">设备信息1</div>
-        <div class="flex-none w-full  bg-gray-400 h-300px">设备状态2</div>
-        <div class="flex-none w-full  bg-gray-400 h-300px">设备状态3</div>
+        <div class="flex-none w-full   h-300px">
+          <AnalyzeBucket/>
+        </div>
+        <div class="flex-none w-full   h-300px">
+          <AnalyzeBucket/>
+        </div>
+        <div class="flex-none w-full  h-300px">
+          <AnalyzeBucket/>
+        </div>
       </div>
 
       <!-- 上一页按钮 -->
@@ -36,17 +46,46 @@
       </button>
     </div>
 
-    <div class="flex flex-row  bg-gray-300 h-300px">
-
+    <div class="flex flex-col h-300px">
+      <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
+        <div>分析工具</div>
+        <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
+          <div class="bg-red-700 w-16 h-16">1</div>
+          <div class="bg-red-700 w-16 h-16">2</div>
+          <div class="bg-red-700 w-16 h-16">3</div>
+          <div class="bg-red-700 w-16 h-16">4</div>
+        </div>
+      </div>
+      <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
+        <div>运行状态</div>
+        <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
+          <div class="bg-red-700 w-16 h-16">1</div>
+          <div class="bg-red-700 w-16 h-16">2</div>
+          <div class="bg-red-700 w-16 h-16">3</div>
+          <div class="bg-red-700 w-16 h-16">4</div>
+          <div class="bg-red-700 w-16 h-16">5</div>
+        </div>
+      </div>
+      <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
+        <div>IT服务管理端</div>
+        <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
+          <div class="bg-red-700 w-16 h-16">1</div>
+          <div class="bg-red-700 w-16 h-16">2</div>
+          <div class="bg-red-700 w-16 h-16">3</div>
+        </div>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
+import AlarmPreview from '../causeAnalysis/components/AlarmPreview.vue';
+import AnalyzeBucket from '../causeAnalysis/components/AnalyzeBucket.vue';
+
 export default {
   name: '',
-  components: {},
+  components: {AlarmPreview,AnalyzeBucket},
   props: {},
   data() {
     return {

@@ -1,6 +1,6 @@
 <template>
     <div class="h-full">
-      <highcharts class="h-full" :options="chartOptions"></highcharts>
+      <highcharts class="h-full w-full" :options="chartOptions"></highcharts>
     </div>
   </template>
    
