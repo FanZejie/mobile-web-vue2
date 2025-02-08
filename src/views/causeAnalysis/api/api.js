@@ -6173,6 +6173,9 @@ export function getTopoStructer() {
                             {
                                 id: 'E-1',
                                 label: '核心交换机',
+                                type: 'custom-normal-node',
+                                imgType:'dns',
+                                status: 'error',
                                 comboId: 'E'
                             },
                             {

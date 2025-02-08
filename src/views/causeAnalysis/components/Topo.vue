@@ -8,7 +8,7 @@
 <script>
 import G6 from '@antv/g6'
 import { getTopoStructer } from '../api/api';
-import { registerCustomUnitNode } from '../lib/CustomNode';
+import { registerCustomNormalNode, registerCustomUnitNode } from '../lib/CustomNode';
 export default {
     name: '',
     components: {},
@@ -27,6 +27,7 @@ export default {
     mounted() {
         this.$nextTick(() => {
             registerCustomUnitNode();
+            registerCustomNormalNode();
             this.initializeGraph()
         })
 

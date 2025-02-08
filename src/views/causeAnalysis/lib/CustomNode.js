@@ -61,7 +61,7 @@ export const registerCustomUnitNode = () => {
 export const registerCustomNormalNode = () => {
     G6.registerNode('custom-normal-node', {
         draw(cfg, group) {
-            const { title, imgType, status } = cfg;
+            const { label, imgType, status } = cfg;
 
             // 根据 status 动态决定边框颜色
             const borderColor = status === 'error'
@@ -75,8 +75,8 @@ export const registerCustomNormalNode = () => {
                 attrs: {
                     x: 0,
                     y: 0,
-                    width: 300,
-                    height: 60,
+                    width: 100,
+                    height: 30,
                     fill: '#ffffff',
                     stroke: borderColor,
                     radius: 10, // 圆角
@@ -86,8 +86,11 @@ export const registerCustomNormalNode = () => {
             // 左侧的 logo，动态根据 type 改变
             let logoSrc;
             switch (imgType) {
-                case 'type1':
-                    logoSrc = 'path/to/logo1.png';
+                case 'terminal':
+                    logoSrc = require('@/assets/images/terminal.png');
+                    break;
+                case 'dns':
+                    logoSrc = require('@/assets/images/dns.png');
                     break;
                 case 'type2':
                     logoSrc = 'path/to/logo2.png';
@@ -99,16 +102,16 @@ export const registerCustomNormalNode = () => {
                     logoSrc = 'path/to/logo4.png';
                     break;
                 default:
-                    logoSrc = 'path/to/default_logo.png'; // 默认 logo
+                    logoSrc = require('@/assets/images/dns.png'); // 默认 logo
             }
 
             // 左侧 logo 绘制
             group.addShape('image', {
                 attrs: {
                     x: 10,
-                    y: 15,
-                    width: 30,
-                    height: 30,
+                    y: 5,
+                    width: 20,
+                    height: 20,
                     img: logoSrc,
                 },
             });
@@ -116,10 +119,10 @@ export const registerCustomNormalNode = () => {
             // 右侧的 title
             group.addShape('text', {
                 attrs: {
-                    x: 50,
-                    y: 30, // 垂直居中
-                    text: title,
-                    fontSize: 14,
+                    x: 40,
+                    y: 20, // 垂直居中
+                    text: label,
+                    fontSize: 10,
                     fill: '#333333',
                 },
             });
