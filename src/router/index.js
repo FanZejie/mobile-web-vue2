@@ -15,6 +15,7 @@ const routes = [
       meta: {
         title: 'Home Page',     // Banner 的标题
         activeMenu: 'home',     // Sidebar 的选中项
+        useLayout:false,        // 是否使用 Layout 组件
       },
     },
     {
