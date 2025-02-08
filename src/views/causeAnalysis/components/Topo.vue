@@ -52,7 +52,7 @@ export default {
                     type: 'dagre',
                     rankdir: 'TB',
                     ranksep: 6,
-                    nodesep: 20,
+                   // nodesep: 20,
                 },
                 modes: {
                     default: [

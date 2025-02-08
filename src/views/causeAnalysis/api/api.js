@@ -6054,17 +6054,23 @@ export function getTopoStructer() {
                             {
                                 id:'terminal',
                                 label:'终端',
-                                img: terminal,
+                                type: 'custom-normal-node',
+                                imgType:'terminal',
+                                status: 'warning'
                             },
                             {
                                 id: '0',
                                 label: '省中心LNS路由器',
-                                img: dns,
+                                type: 'custom-normal-node',
+                                imgType:'dns',
+                                status: '0'
                             },
                             {
                                 id: '1',
                                 label: '阿里公网DNS',
-                                img: dns,
+                                type: 'custom-normal-node',
+                                imgType:'dns',
+                                status: '0'
                             },
                             {
                                 id: '1-0',

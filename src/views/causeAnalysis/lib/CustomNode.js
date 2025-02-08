@@ -70,12 +70,20 @@ export const registerCustomNormalNode = () => {
                     ? 'yellow'
                     : 'green';
 
+            // 使用 canvas 的 context.measureText() 方法来计算文字宽度
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            ctx.font = '10px sans-serif';  // 设置字体样式
+            const textWidth = ctx.measureText(label).width;  // 计算文本宽度
+            // 计算矩形的宽度，确保包含文本的宽度，同时加一些内边距
+            const rectWidth = textWidth + 50;  // 50 是内边距，防止文字紧贴矩形边框
+
             // 绘制外部矩形
             const rect = group.addShape('rect', {
                 attrs: {
                     x: 0,
                     y: 0,
-                    width: 100,
+                    width: rectWidth,
                     height: 30,
                     fill: '#ffffff',
                     stroke: borderColor,
