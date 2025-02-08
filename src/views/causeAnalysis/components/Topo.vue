@@ -52,7 +52,7 @@ export default {
                     type: 'dagre',
                     rankdir: 'TB',
                     ranksep: 6,
-                    // nodesep: 20,
+                     nodesep: 80,
                 },
                 modes: {
                     default: [
@@ -76,14 +76,14 @@ export default {
 
                 defaultCombo: {
                     type: 'rect',
-                    padding: [0, 20, 0, 20],
+                    padding: [10, 60, 10, 60],
                     labelCfg: {
                         position: 'top',
                         refX: 0,
                         refY: 0,
                         style: {
                             fill: '#666',
-                            fontSize: 4
+                            fontSize: 10
                         },
                     },
                 },

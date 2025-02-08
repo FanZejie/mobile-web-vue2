@@ -3,41 +3,55 @@ import G6 from '@antv/g6';
 export const registerCustomUnitNode = () => {
     G6.registerNode('custom-rect-node', {
         draw(cfg, group) {
-            const { title, items } = cfg;
+            const { title, items, status } = cfg;
+
+            // 根据 status 动态决定边框颜色
+            const borderColor = status === 'error'
+                ? 'red'
+                : status === 'warning'
+                    ? '#efb041'
+                    : 'green';
 
             // 绘制外部矩形
             const rect = group.addShape('rect', {
                 attrs: {
-                    width: 60,
-                    height: 100,
-                    fill: '#ffffff',
-                    stroke: '#000000',
-                    radius: 10, // 外矩形圆角
+                    width: 120,
+                    height: 180,
+                    stroke: borderColor,
+                    radius: 4, // 外矩形圆角
                 },
             });
 
             // 绘制左上角文字
             group.addShape('text', {
                 attrs: {
-                    x: 8,
-                    y: 8,
+                    x: 10,
+                    y: 14,
                     text: title,
-                    fontSize: 8,
+                    fontSize: 10,
                     fill: '#000000',
                 },
             });
 
             // 绘制六个内部圆角矩形，每个包含名字和状态
-            const itemHeight = 10; // 每个圆角矩形的高度
+            const itemHeight = 20; // 每个圆角矩形的高度
             items.forEach((item, index) => {
+
+                // 根据 status 动态决定边框颜色
+                const itemBorderColor = item.status === 'error'
+                    ? 'red'
+                    : item.status === 'warning'
+                        ? '#efb041'
+                        : 'green';
+
+
                 group.addShape('rect', {
                     attrs: {
                         x: 10,
-                        y: 10 + index * (itemHeight + 5), // 间距5px
-                        width: 40,
+                        y: 20 + index * (itemHeight + 5), // 间距5px
+                        width: 100,
                         height: itemHeight,
-                        fill: '#f0f0f0',
-                        stroke: '#cccccc',
+                        stroke: itemBorderColor,
                         radius: 1, // 圆角
                     },
                 });
@@ -45,9 +59,9 @@ export const registerCustomUnitNode = () => {
                 group.addShape('text', {
                     attrs: {
                         x: 20,
-                        y: 10 + index * (itemHeight + 5) + itemHeight / 2, // 垂直居中
+                        y: 25 + index * (itemHeight + 5) + itemHeight / 2, // 垂直居中
                         text: `${item.name}`,
-                        fontSize: 4,
+                        fontSize: 10,
                         fill: '#333333',
                     },
                 });
@@ -150,5 +164,5 @@ export const registerCustomNormalNode = () => {
             return rect; // 返回节点
         },
     }
-);
+    );
 }
