@@ -1,35 +1,63 @@
 <template>
   <div class="flex flex-col h-screen bg-gray-100">
-    <div class="flex flex-row w-full h-12 items-center justify-between px-4  bg-blue-800 md:hidden">
+    <!-- <div class="flex flex-row w-full h-12 items-center justify-between px-4  bg-blue-800 md:hidden">
       <div class=" text-white">范泽杰2289</div>
       <div class=" text-white">v1.1</div>
-    </div>
+    </div> -->
     <div class="flex flex-row md:h-36">
-      <div class="flex flex-col w-full md:w-1/2">
+      <div class="flex flex-col w-full m-1 bg-white md:w-1/2">
+        <div class="flex flex-row w-full h-12 items-center justify-between px-4  bg-blue-800 md:mb-6">
+          <div class=" text-white">范泽杰2289</div>
+          <div class=" text-white">v1.1</div>
+        </div>
         <AlarmPreview />
       </div>
-      <div class=" w-1/2 bg-gray-400 hidden md:flex md:flex-col">更新信息</div>
+      <div class=" w-1/2 bg-white m-1 p-2 hidden overflow-auto md:flex md:flex-col">
+
+
+    <ul class="space-y-4">
+      <li class="flex items-start space-x-3  rounded-lg hover:bg-gray-200 transition duration-300">
+        <span class="text-blue-500 ">🔧</span>
+        <span class="text-gray-700 ">根因分析添加响应式功能</span>
+      </li>
+      <li class="flex items-start space-x-3  rounded-lg hover:bg-gray-200 transition duration-300">
+        <span class="text-blue-500">🎨</span>
+        <span class="text-gray-700 ">全新设计的首页</span>
+      </li>
+      <li class="flex items-start space-x-3  rounded-lg hover:bg-gray-200 transition duration-300">
+        <span class="text-blue-500 ">📊</span>
+        <span class="text-gray-700 ">根因分析增加架构拓扑可视化模块</span>
+      </li>
+    </ul>
+
+        <!-- <el-timeline>
+          <el-timeline-item v-for="(activity, index) in activities" :key="index" :timestamp="activity.timestamp">
+            {{ activity.content }}
+          </el-timeline-item>
+        </el-timeline> -->
+      </div>
     </div>
 
     <div class="m-2 h-300px hidden md:flex md:flex-row md:gap-2">
-     
-        <AnalyzeBucket class="flex w-1/3 border"/>
-        <AnalyzeBucket class="flex w-1/3 border"/>
-        <AnalyzeBucket class="flex w-1/3 border"/>
+
+      <AnalyzeBucket class="flex w-1/3 border" />
+      <AnalyzeBucket class="flex w-1/3 border" />
+      <AnalyzeBucket class="flex w-1/3 border" />
     </div>
 
     <!-- 小屏幕滑动效果 -->
-    <div class="relative overflow-hidden h-300px w-full md:hidden sm:block" @touchstart="touchStart" @touchmove="touchMove" @touchend="touchEnd">
+    <div class="relative overflow-hidden h-300px w-full md:hidden sm:block" @touchstart="touchStart"
+      @touchmove="touchMove" @touchend="touchEnd">
       <div class="flex transition-transform duration-500"
         :style="{ transform: 'translateX(-' + currentIndex * 100 + '%)' }">
         <div class="flex-none w-full   h-300px">
-          <AnalyzeBucket/>
+          <AnalyzeBucket />
         </div>
         <div class="flex-none w-full   h-300px">
-          <AnalyzeBucket/>
+          <AnalyzeBucket />
         </div>
         <div class="flex-none w-full  h-300px">
-          <AnalyzeBucket/>
+          <AnalyzeBucket />
         </div>
       </div>
 
@@ -50,30 +78,30 @@
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>分析工具</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-         
-            <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件编辑" href="/causeAnalysis"/>
+
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件编辑" href="/causeAnalysis" />
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>运行状态</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="营销中心" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="实体渠道" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="开放平台" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="USAP" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis"/>
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="营销中心" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="实体渠道" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="开放平台" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="USAP" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis" />
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>IT服务管理端</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis"/>
-            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis"/>
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis" />
         </div>
       </div>
     </div>
@@ -88,7 +116,7 @@ import HomeMenuItem from './components/HomeMenuItem.vue';
 
 export default {
   name: '',
-  components: {AlarmPreview,AnalyzeBucket,HomeMenuItem},
+  components: { AlarmPreview, AnalyzeBucket, HomeMenuItem },
   props: {},
   data() {
     return {
@@ -96,6 +124,17 @@ export default {
       totalSlides: 3, // 总的轮播项数
       touchStartX: 0,   // 记录触摸起始位置
       touchEndX: 0,     // 记录触摸结束位置
+
+      activities: [{
+        content: '根因分析增加架构拓扑可视化模块',
+        timestamp: '2025-04-15'
+      }, {
+        content: '通过审核',
+        timestamp: '2018-04-13'
+      }, {
+        content: '创建成功',
+        timestamp: '2018-04-11'
+      }]
     }
   },
   computed: {},
