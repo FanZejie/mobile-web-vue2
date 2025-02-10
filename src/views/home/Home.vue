@@ -50,28 +50,30 @@
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>分析工具</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <div class="bg-red-700 w-16 h-16">1</div>
-          <div class="bg-red-700 w-16 h-16">2</div>
-          <div class="bg-red-700 w-16 h-16">3</div>
-          <div class="bg-red-700 w-16 h-16">4</div>
+         
+            <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件编辑" href="/causeAnalysis"/>
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>运行状态</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <div class="bg-red-700 w-16 h-16">1</div>
-          <div class="bg-red-700 w-16 h-16">2</div>
-          <div class="bg-red-700 w-16 h-16">3</div>
-          <div class="bg-red-700 w-16 h-16">4</div>
-          <div class="bg-red-700 w-16 h-16">5</div>
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="营销中心" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="实体渠道" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="开放平台" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="USAP" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis"/>
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>IT服务管理端</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <div class="bg-red-700 w-16 h-16">1</div>
-          <div class="bg-red-700 w-16 h-16">2</div>
-          <div class="bg-red-700 w-16 h-16">3</div>
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis"/>
+            <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis"/>
         </div>
       </div>
     </div>
@@ -82,10 +84,11 @@
 <script>
 import AlarmPreview from '../causeAnalysis/components/AlarmPreview.vue';
 import AnalyzeBucket from '../causeAnalysis/components/AnalyzeBucket.vue';
+import HomeMenuItem from './components/HomeMenuItem.vue';
 
 export default {
   name: '',
-  components: {AlarmPreview,AnalyzeBucket},
+  components: {AlarmPreview,AnalyzeBucket,HomeMenuItem},
   props: {},
   data() {
     return {
