@@ -5,14 +5,14 @@
       <div class=" text-white">v1.1</div>
     </div> -->
     <div class="flex flex-row md:h-36">
-      <div class="flex flex-col w-full m-1 bg-white md:w-1/2">
+      <div class="flex flex-col w-full md:m-1 bg-white md:w-1/2">
         <div class="flex flex-row w-full h-12 items-center justify-between px-4  bg-blue-800 md:mb-6">
           <div class=" text-white">范泽杰2289</div>
           <div class=" text-white">v1.1</div>
         </div>
         <AlarmPreview />
       </div>
-      <div class=" w-1/2 bg-white m-1 p-2 hidden overflow-auto md:flex md:flex-col">
+      <div class=" w-1/2 bg-white md:m-1 p-2 hidden overflow-auto md:flex md:flex-col">
 
 
     <ul class="space-y-4">
@@ -79,29 +79,28 @@
         <div>分析工具</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
 
-          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="根因分析" href="/causeAnalysis" />
           <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件编辑" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="alarmSearch.png" label="应急事件查看" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="alarmSearch.png" label="应急事件编辑" href="/causeAnalysis" />
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>运行状态</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="营销中心" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="实体渠道" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="开放平台" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="USAP" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="SMS" href="/causeAnalysis" />
+          <FontMenuItem class="w-16 h-16" label="营销中心" shortName="MKC"/>
+          <FontMenuItem class="w-16 h-16" label="实体渠道" shortName="CHC"/>
+          <FontMenuItem class="w-16 h-16" label="开放平台" shortName="OP"/>
+          <FontMenuItem class="w-16 h-16" label="USAP" shortName="USAP"/>
+          <FontMenuItem class="w-16 h-16" label="短信服务" shortName="SMS"/>
         </div>
       </div>
       <div class="border h-full flex flex-col text-lg font-bold bg-white m-1 rounded-lg">
         <div>IT服务管理端</div>
         <div class="w-full h-full flex flex-row gap-3 flex-wrap pb-2">
-          <HomeMenuItem class="w-16 h-16" imgSrc="causeAnalysis.png" label="告警分析" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="自证结果" href="/causeAnalysis" />
-          <HomeMenuItem class="w-16 h-16" imgSrc="inspection.png" label="应急事件查看" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="calendar.png" label="重保日历" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="bandWidth.png" label="带宽容量" href="/causeAnalysis" />
+          <HomeMenuItem class="w-16 h-16" imgSrc="itAssets.png" label="IT资产" href="/causeAnalysis" />
         </div>
       </div>
     </div>
@@ -113,10 +112,11 @@
 import AlarmPreview from '../causeAnalysis/components/AlarmPreview.vue';
 import AnalyzeBucket from '../causeAnalysis/components/AnalyzeBucket.vue';
 import HomeMenuItem from './components/HomeMenuItem.vue';
+import FontMenuItem from './components/FontMenuItem.vue';
 
 export default {
   name: '',
-  components: { AlarmPreview, AnalyzeBucket, HomeMenuItem },
+  components: { AlarmPreview, AnalyzeBucket, HomeMenuItem,FontMenuItem },
   props: {},
   data() {
     return {
