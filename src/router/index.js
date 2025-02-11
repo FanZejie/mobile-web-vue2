@@ -23,7 +23,7 @@ const routes = [
       name: 'CauseAnalysis',
       component: CauseAnalysis,
       meta: {
-        title: 'Cause Analysis',
+        title: '根因分析',
         activeMenu: 'causeAnalysis',
       },
     }

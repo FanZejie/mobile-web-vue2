@@ -87,7 +87,7 @@ export const registerCustomNormalNode = () => {
             // 使用 canvas 的 context.measureText() 方法来计算文字宽度
             const canvas = document.createElement('canvas');
             const ctx = canvas.getContext('2d');
-            ctx.font = '10px sans-serif';  // 设置字体样式
+            ctx.font = '14px sans-serif';  // 设置字体样式
             const textWidth = ctx.measureText(label).width;  // 计算文本宽度
             // 计算矩形的宽度，确保包含文本的宽度，同时加一些内边距
             const rectWidth = textWidth + 50;  // 50 是内边距，防止文字紧贴矩形边框
@@ -98,7 +98,7 @@ export const registerCustomNormalNode = () => {
                     x: 0,
                     y: 0,
                     width: rectWidth,
-                    height: 30,
+                    height: 40,
                     fill: '#ffffff',
                     stroke: borderColor,
                     radius: 10, // 圆角
@@ -144,8 +144,8 @@ export const registerCustomNormalNode = () => {
                 attrs: {
                     x: 10,
                     y: 5,
-                    width: 20,
-                    height: 20,
+                    width: 25,
+                    height: 25,
                     img: logoSrc,
                 },
             });
@@ -154,9 +154,9 @@ export const registerCustomNormalNode = () => {
             group.addShape('text', {
                 attrs: {
                     x: 40,
-                    y: 20, // 垂直居中
+                    y: 24, // 垂直居中
                     text: label,
-                    fontSize: 10,
+                    fontSize: 14,
                     fill: '#333333',
                 },
             });

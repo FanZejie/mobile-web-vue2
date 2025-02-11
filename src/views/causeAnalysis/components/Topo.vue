@@ -51,8 +51,15 @@ export default {
                 layout: {
                     type: 'dagre',
                     rankdir: 'TB',
-                    ranksep: 6,
-                     nodesep: 80,
+                    ranksep: 10,
+                    nodesep: 30,
+                    // 使用函数控制每个节点之间的水平间距
+                    nodesepFunc: (node) => {
+                        if (node.label === '省中心LNS路由器') {
+                            return 80;  // 特定节点间距
+                        }
+                        return 30;  // 默认节点间距
+                    },
                 },
                 modes: {
                     default: [
@@ -63,8 +70,8 @@ export default {
                 defaultNode: {
                     type: 'custom-normal-node',
                     anchorPoints: [
-                    [0.5, 1],
-                    [0.5, 0],    
+                        [0.5, 1],
+                        [0.5, 0],
                     ],// 设置锚点,这里最好就按这个顺序，两个数组顺序改了edge会有问题
                 },
                 defaultEdge: {
@@ -76,7 +83,7 @@ export default {
 
                 defaultCombo: {
                     type: 'rect',
-                    padding: [10, 60, 10, 60],
+                    padding: [20, 5, 20, 5],
                     labelCfg: {
                         position: 'top',
                         refX: 0,
