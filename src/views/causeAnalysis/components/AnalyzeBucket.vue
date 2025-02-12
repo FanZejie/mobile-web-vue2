@@ -87,7 +87,6 @@
     methods: {
       async initData() {
         let res = await getAlertsAnalyse()
-        console.log('res', res.data.data.histograms)
         let series = res.data.data.histograms
         this.setColor(series)
         series = this.setZeroToNull(series)
@@ -192,7 +191,6 @@
         this.$emit('clickLegend', seriesName)
       },
       handleLegendClick(e) {
-        console.log('e', e)
         const clickedSeries = e.target.chart.series.find(series => series.name === e.target.name)
         if (this.selectedLegend === clickedSeries.name) {
           e.target.chart.series.forEach(series => {

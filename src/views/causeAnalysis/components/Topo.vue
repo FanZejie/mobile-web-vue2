@@ -2,6 +2,18 @@
     <div class="topology-container">
         <!-- 用于渲染 G6 图形的容器 -->
         <div id="container" ref="container" class="topology-chart" style="width: 100%; height: 700px"></div>
+        <el-dialog title="节点详情" :visible.sync="dialogVisible">
+            <div class="flex flex-col">
+                    <div>节点: 10.215.22.31</div>
+                    <div>节点别名: VM_22_32_linux</div>
+                    <div>数据中心: 10.215.22.31</div>
+                    <div>管理对象: Linux</div>
+                    <div>管理对象组件: 日志</div>
+                    <div>告警摘要: G3财务中心表t_igm_oms_gm_product分区将到上线，产品编号已超过1100，请联系刘兴旺</div>
+                    <div>告警开始时间: 2025-02-11 09:00:01</div>
+                    <div>告警最后一次发生时间: 2025-02-11 09:00:01</div>
+            </div>
+        </el-dialog>
     </div>
 </template>
 
@@ -17,7 +29,8 @@ export default {
         return {
             // 初始化数据：包含节点和组合
             graphData: null,
-            graph: null
+            graph: null,
+            dialogVisible: false
         }
     },
     computed: {
@@ -95,6 +108,11 @@ export default {
                     },
                 },
 
+            })
+
+            this.graph.on('node:click', (e) => {
+                console.log('node click', e)
+                this.dialogVisible = true
             })
 
             let res = await getTopoStructer()

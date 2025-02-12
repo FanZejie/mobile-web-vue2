@@ -133,7 +133,6 @@ export default {
     },
     async initData() {
       let {data} = await getBusiImpact()
-      console.log(data)
       if (data.code == 0) {
         this.tableData = data.data
         this.refreshDesc()

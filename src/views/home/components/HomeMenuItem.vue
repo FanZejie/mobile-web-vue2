@@ -36,7 +36,6 @@ export default {
     watch: {},
     created() { },
     mounted() {
-        console.log(this.imgSrc)
     },
     methods: {
         navigate() {
